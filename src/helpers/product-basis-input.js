@@ -1,4 +1,4 @@
-// Opdracht 2a: Maak een helperfunctie die een string genereert voor de naam van één tv en deze teruggeeft in het format [merk] [type] - [naam] zoals Philips 43PUS6504/12 - 4K TV of NIKKEI NH3216SMART - HD smart TV.
+// Opdracht 2a: Maak een helper functie die een string genereert voor de naam van één tv en deze teruggeeft in het format [merk] [type] - [naam] zoals Philips 43PUS6504/12 - 4K TV of NIKKEI NH3216SMART - HD smart TV.
 // linken naar alle keys in log
 // gewenste string van maken
 // generieke string die door invoeren van juiste array positie de juiste tv genereert
@@ -33,7 +33,7 @@ export function bestSellingTvsize(object) {
         sizes.push(sizeString);
     }
 
-    return sizes;
+    return sizes.join(' | ');
 }
 
-console.log(bestSellingTvsize(bestSellingTv()).join(' | '))
+console.log(bestSellingTvsize(bestSellingTv()))
