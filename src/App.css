@@ -1,0 +1,68 @@
+body {
+    max-width: 1200px;
+    margin: 20px;
+}
+
+.overview {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin: 20px 0;
+
+}
+
+.overview-box {
+    border: 3px solid;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    height:200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.green {
+    color: green;
+    border-color: green;
+    background-color: lightgreen;
+}
+
+.blue {
+    color: royalblue;
+    border-color: royalblue;
+    background-color: lightblue;
+}
+
+.red {
+    color: red;
+    border-color: red;
+    background-color: lightsalmon;
+}
+
+.best-selling-tv {
+    border: 2px dashed black;
+    border-radius: 10px;
+    background-color: lightgrey;
+    height: 300px;
+    margin: 20px 0;
+    padding: 40px;
+
+    display: flex;
+    align-content: center;
+}
+
+.best-selling-photo {
+    width: auto;
+    max-height: 100%;
+    margin: 0 20px 0 0;
+}
+
+.best-selling-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}

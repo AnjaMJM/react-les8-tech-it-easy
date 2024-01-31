@@ -72,7 +72,7 @@ export let inventory = [
             }
         ],
         originalStock: 23,
-        sold: 2,
+        sold: 10,
     },
     {
         type: 'NH3216SMART',
@@ -288,7 +288,7 @@ export let inventory = [
             }
         ],
         originalStock: 10,
-        sold: 8,
+        sold: 18,
     },
     {
         type: '32WL1A63DG',
@@ -360,7 +360,7 @@ export let inventory = [
             }
         ],
         originalStock: 52,
-        sold: 17,
+        sold: 20,
     }
 ];
 
