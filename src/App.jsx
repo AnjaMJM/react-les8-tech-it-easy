@@ -3,11 +3,11 @@ import {bestSellingTv, inventory} from "./constants/inventory.js";
 import {totalSold} from "./helpers/total-sold.js";
 import {totalBought} from "./helpers/total-bought.js";
 import {totalStock} from "./helpers/total-stock.js";
-import {bestSellingTvPrice, bestSellingTvsize, bestSellingTvTitle} from "./helpers/product-basis-input.js";
+import {tvPrice, tvSize, tvTitle} from "./helpers/product-basis-input.js";
 import check from "./assets/check.png"
 import minus from "./assets/minus.png"
-import Card from "./components/Card/Card.jsx";
 import Button from "./components/Button/Button.jsx";
+// import {tvSpecifications} from "./helpers/product-basis-input.js";
 
 
 function App() {
@@ -43,24 +43,41 @@ function App() {
                 <article className="best-selling-tv">
                     <div ><img className="best-selling-photo" src={bestSellingTv().sourceImg} alt="TV"/></div>
                     <div className="best-selling-text">
-                      <h3>{bestSellingTvTitle(bestSellingTv())}</h3>
-                      <h2>{bestSellingTvPrice(bestSellingTv())}</h2>
-                      <p>{bestSellingTvsize(bestSellingTv())}</p>
+                      <h3>{tvTitle(bestSellingTv())}</h3>
+                      <h2>{tvPrice(bestSellingTv())}</h2>
+                      <p>{tvSize(bestSellingTv())}</p>
                         <p><img src={check} className="icon" alt="check"/> wifi <img src={minus} className="icon" alt="no-check"/> speech <img src={check} className="icon" alt="check" /> hdr <img src={check} className="icon" alt="check" /> bluetooth <img src={minus} className="icon" alt="no-check"/> ambilight</p>
                     </div>
                 </article>
             </section>
             <section>
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 <h2>Alle tv's </h2>
-                <Card fruit="banaan" geenIdee="Hier komt andere tekst" extraStyling="class-naam"/>
-                <Card fruit="appel" geenIdee="Zet hier maar weer iets neer"/>
-                <Card fruit="appel" geenIdee="Zet hier maar weer iets neer"/>
-                <button type="button" className="button-sorting" onClick={() => buttonAction(button1)}>{button1}</button>
-                <button type="button" className="button-sorting" onClick={() =>buttonAction(button2)}>{button2}</button>
-                {/*<button type="button" className="button-sorting" onClick={() =>buttonAction(button3)}>{button3}</button>*/}
-                <Button handleClick={() =>buttonAction(button3)}>Button</Button>
+                <Button handleClick={() =>buttonAction(button1)}>{button1}</Button>
+                <Button handleClick={() =>buttonAction(button2)}>{button2}</Button>
+                <Button handleClick={() =>buttonAction(button3)}>{button3}</Button>
             </section>
+
+            <section>
+                <ul>
+                    {inventory.map((item) => {
+                        return <li key={item.type}>{item.brand}</li>
+                    })}
+                </ul>
+            </section>
+              <section>
+                  <ul>
+                      {inventory.map((item) => {
+                          return <li key={item.type}>
+                              <h3>{tvTitle(item)}</h3>
+                              <h2>{tvPrice(item)}</h2>
+                              <p>{tvSize(item)}</p>
+                          </li>
+                      })}
+
+                  </ul>
+                  {/*<img>{tvSpecifications(inventory)}</img>*/}
+
+              </section>
           </main>
       </>
   )

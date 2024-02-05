@@ -1,9 +1,10 @@
+import "./button.css"
 
 
 function Button({children, handleClick}) {
 
     return (
-        <button onClick={handleClick}>{children}</button>
+        <button onClick={handleClick} className="button-basic">{children}</button>
     );
 }
 
