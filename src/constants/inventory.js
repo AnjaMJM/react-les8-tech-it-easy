@@ -392,7 +392,7 @@ const tvNames = inventory.map((item) => {
     return item.name
 })
 
-// console.log(tvNames)
+console.log(tvNames)
 
 //     Opdracht 1b: Gebruik een array-methode om alle informatie te verzamelen van de tv's die volledig uitverkocht zijn. Log de uitkomst in de console.
 
@@ -400,7 +400,7 @@ const soldOut = inventory.filter((item)=>{
     return (item.originalStock = item.sold)
 })
 
-// console.log(soldOut)
+console.log(soldOut)
 
 // Opdracht 1c: Gebruik een array-methode om de informatie van het tv-type 'NH3216SMART' op te halen.
 
@@ -408,7 +408,7 @@ const specificTV = inventory.find((item) => {
     return (item.type === "NH3216SMART")
 })
 
-// console.log(specificTV)
+console.log(specificTV)
 
 //     Opdracht 1d: Gebruik een array-methode om een lijst te maken van de merk- en tv-namen waarbij aangegeven wordt of deze geschikt zijn voor sport-kijkers (een verversingssnelheid van 100Hz of hoger). Doe dit in het format { name: 'Toshiba HD TV', suitable: false }. Log de uitkomst in de console.
 
@@ -417,19 +417,18 @@ const sportTV = inventory.map((item) => {
     return {name: item.name, suitable: suitable}
 })
 
-// console.log(sportTV);
+console.log(sportTV);
 
 //     Opdracht 1e (uitdaging): Gebruik array-methoden om alle informatie te verzamelen van de tv's die beschikbaar zijn in schermgroottes van 65 inch en groter.
 
-//dring door tot inventory.availableSizes
+//Maak een functie om de unieke objecten te inspecteren
+// Maak hierbinnen een functie om de array 'availableSizes' te kunnen inspecteren.
+// filter de tv's met grote schermen d.m.v. array-methode 'some'
 
-
-const largeTVs = inventory.availableSizes.filter((size) => {
-                    return (size >= 65)
-     
-})
+const largeTVs = inventory.filter((item) =>item.availableSizes.some(size => size >=65));
 
 console.log(largeTVs);
+
 
 // Opdracht 1f (uitdaging): Gebruik array-methoden om alle informatie te verzamelen van de tv's die over ambilight beschikken. Log de uitkomst in de console.
 
