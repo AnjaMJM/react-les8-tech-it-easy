@@ -40,6 +40,7 @@ function App() {
               </article>
             </section>
 
+            {/* Best selling tv uitgeschreven in HTML */}
             <section>
                 <h2>Best verkochte tv</h2>
                 <article className="best-selling-tv">
@@ -53,13 +54,16 @@ function App() {
                     </div>
                 </article>
             </section>
+
+            {/* buttons verwerkt als component. ButtonAction is zelfgemaakte functie om actie aan mee te geven */}
             <section>
                 <h2>Alle tv's </h2>
-                <Button handleClick={() => buttonAction(sortByItemsSold)}> {button1}</Button>
+                <Button handleClick={() =>buttonAction(sortByItemsSold)}> {button1}</Button>
                 <Button handleClick={() =>buttonAction(sortByItemPrice)}>{button2}</Button>
                 <Button handleClick={() =>buttonAction(sortBySportSuitability)}>{button3}</Button>
             </section>
 
+            {/* tussenopdracht om tv-merken naar voren te halen */}
             {/*<section>*/}
             {/*    <ul>*/}
             {/*        {inventory.map((item) => {*/}
@@ -67,6 +71,8 @@ function App() {
             {/*        })}*/}
             {/*    </ul>*/}
             {/*</section>*/}
+
+            {/* overzicht met tv's uitgewerkt als component */}
               <section>
                   <ul>
                       {inventory.map((items) => {
