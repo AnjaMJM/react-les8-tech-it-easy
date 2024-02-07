@@ -46,8 +46,8 @@ function App() {
                 <article className="best-selling-tv">
                     <div ><img className="best-selling-photo" src={bestSellingTv().sourceImg} alt="TV"/></div>
                     <div className="best-selling-text">
-                      <h3>{tvTitle(bestSellingTv())}</h3>
-                      <h2>{tvPrice(bestSellingTv())}</h2>
+                      <p className={"tv-title"}>{tvTitle(bestSellingTv())}</p>
+                      <p className={"tv-price"}>{tvPrice(bestSellingTv())}</p>
                       <p>{tvSize(bestSellingTv())}</p>
                         <p><img src={check} className="icon" alt="check"/> wifi <img src={minus} className="icon" alt="no-check"/> speech <img src={check} className="icon" alt="check" /> hdr <img src={check} className="icon" alt="check" /> bluetooth <img src={minus} className="icon" alt="no-check"/> ambilight</p>
 

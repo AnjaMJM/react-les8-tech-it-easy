@@ -10,8 +10,8 @@ function Card({item}) {
         <li key={item.type} className="card-base">
             <img src={tvPhoto(item)} alt="tv" className="card-photo"/>
             <div className="card-text">
-                <h3>{tvTitle(item)}</h3>
-                <h2>{tvPrice(item)}</h2>
+                <p className={"tv-title"}>{tvTitle(item)}</p>
+                <p className={"tv-price"}>{tvPrice(item)}</p>
                 <p>{tvSize(item)}</p>
                 <div className={"card-options-list"}>{item.options.map((option) => {
                 return <div className={"card-options"}>
