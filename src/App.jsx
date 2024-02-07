@@ -1,13 +1,16 @@
 import './App.css';
+import './components/Card/card.css'
 import {bestSellingTv, inventory} from "./constants/inventory.js";
 import {totalSold} from "./helpers/total-sold.js";
 import {totalBought} from "./helpers/total-bought.js";
 import {totalStock} from "./helpers/total-stock.js";
-import {tvPrice, tvSize, tvTitle} from "./helpers/product-basis-input.js";
+import {tvPrice, tvSize, tvTitle, tvPhoto} from "./helpers/product-basis-input.js";
 import check from "./assets/check.png"
 import minus from "./assets/minus.png"
 import Button from "./components/Button/Button.jsx";
-// import {tvSpecifications} from "./helpers/product-basis-input.js";
+import Card from "./components/Card/Card.jsx";
+import {tvOptions} from "./helpers/tv-options.js";
+// import {tvOptions} from "./helpers/tv-options.js";
 
 
 function App() {
@@ -47,6 +50,7 @@ function App() {
                       <h2>{tvPrice(bestSellingTv())}</h2>
                       <p>{tvSize(bestSellingTv())}</p>
                         <p><img src={check} className="icon" alt="check"/> wifi <img src={minus} className="icon" alt="no-check"/> speech <img src={check} className="icon" alt="check" /> hdr <img src={check} className="icon" alt="check" /> bluetooth <img src={minus} className="icon" alt="no-check"/> ambilight</p>
+
                     </div>
                 </article>
             </section>
@@ -66,16 +70,29 @@ function App() {
             </section>
               <section>
                   <ul>
-                      {inventory.map((item) => {
-                          return <li key={item.type}>
-                              <h3>{tvTitle(item)}</h3>
-                              <h2>{tvPrice(item)}</h2>
-                              <p>{tvSize(item)}</p>
-                          </li>
-                      })}
+                      {inventory.map((items) => {
+                          return <Card
+                             item={items}
+                          ></Card>
 
-                  </ul>
-                  {/*<img>{tvSpecifications(inventory)}</img>*/}
+
+
+
+
+
+
+
+                          // <li key={item.type} className="card-base">
+                          //     <img src={tvPhoto(item)} alt="tv" className="card-photo"/>
+                          //     <div className="card-text">
+                          //         <h3>{tvTitle(item)}</h3>
+                          //         <h2>{tvPrice(item)}</h2>
+                          //         <p>{tvSize(item)}</p>
+                          //         {/*<p>{tvOptions(item)}</p>*/}
+                          //     </div>
+                          // </li>
+                      })}
+                      </ul>
 
               </section>
           </main>

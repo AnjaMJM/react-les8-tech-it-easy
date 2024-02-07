@@ -3,7 +3,7 @@
 // gewenste string van maken
 // generieke string die door invoeren van juiste array positie de juiste tv genereert
 
-import {bestSellingTv} from "../constants/inventory.js";
+import {bestSellingTv, inventory} from "../constants/inventory.js";
 
 
 export function tvTitle(object) {
@@ -38,23 +38,23 @@ export function tvSize(object) {
 
 console.log(tvSize(bestSellingTv()))
 
-// een helperfunctie die op basis van een true of false bepaald welke afbeelding geplaatst moet worden bij de verschillende options
+// export function tvPhoto(array) {
+//     let photo = document.createElement("img");
+// photo.src = array.sourceImg
 //
-// - inventory.options name of applicable
-// per object door de lijst heen mappen en alle namen afdrukken
-// a.d.h.v. applicable key met een if statement bepalen welke afbeelding ervoor geplaatst moet worden
-
-// export const tvSpecifications= objects.map((object)) {
-//     const icon = new Image(14);
+// document.body.appendChild(photo)
 //
-//     if (object.options.applicable === true) {
-//         return icon.src = "./assets/screenshots/check.png"
-//     } else {
-//         return icon.src = "./assets/screenshots/minus.png"
-//     }
-//
+//     return photo
 // }
 
-// const img = document.createElement("img");
-// img.src = "./assets/screenshots/check.png"
-// document.body.appendChild(img)
+// Maak een helperfunctie die de photo's van de tv genereerd bij de bijbehorende informatie
+// Map alle URL's (inventory.sourceImg)
+export const tvPhotos = inventory.map((item) => {
+    return item.sourceImg
+})
+
+console.log("url", tvPhotos)
+
+export function tvPhoto(object) {
+    return object.sourceImg
+}

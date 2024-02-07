@@ -360,7 +360,7 @@ export let inventory = [
             }
         ],
         originalStock: 52,
-        sold: 20,
+        sold: 17,
     }
 ];
 
@@ -397,7 +397,7 @@ console.log(tvNames)
 //     Opdracht 1b: Gebruik een array-methode om alle informatie te verzamelen van de tv's die volledig uitverkocht zijn. Log de uitkomst in de console.
 
 const soldOut = inventory.filter((item)=>{
-    return (item.originalStock = item.sold)
+    return (item.originalStock === item.sold)
 })
 
 console.log(soldOut)
@@ -421,15 +421,24 @@ console.log(sportTV);
 
 //     Opdracht 1e (uitdaging): Gebruik array-methoden om alle informatie te verzamelen van de tv's die beschikbaar zijn in schermgroottes van 65 inch en groter.
 
-//Maak een functie om de unieke objecten te inspecteren
+// Maak een functie om de unieke objecten te inspecteren
 // Maak hierbinnen een functie om de array 'availableSizes' te kunnen inspecteren.
 // filter de tv's met grote schermen d.m.v. array-methode 'some'
 
-const largeTVs = inventory.filter((item) =>item.availableSizes.some(size => size >=65));
+const largeTVs = inventory.filter((item) => item.availableSizes.some(size => size >=65));
 
 console.log(largeTVs);
 
 
 // Opdracht 1f (uitdaging): Gebruik array-methoden om alle informatie te verzamelen van de tv's die over ambilight beschikken. Log de uitkomst in de console.
 
-// const ambilightTVs = inventory
+// Net als bij opdracht 1e: een functie in een functie om tot laag 2 te komen, nu options.name === "ambilight" en options.applicable === "true"
+// log overgebleven tv's
+
+const ambilightTVs = inventory.filter((item) => {
+    return item.options.some((option) => {
+        return (option.name === "ambiLight" && option.applicable === true)
+    })
+})
+
+console.log(ambilightTVs)

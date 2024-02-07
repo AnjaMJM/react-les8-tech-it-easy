@@ -1,8 +1,43 @@
-.card-styling {
-    height: 100px;
-    border: 3px dashed red;
+.card-base {
+    border: 2px dashed black;
+    border-radius: 10px;
+    background-color: lightgrey;
+    height: 300px;
+    margin: 20px 0;
+    padding: 40px;
+
+    display: flex;
+    align-content: center;
 }
 
-.class-naam {
-    background-color: royalblue;
+.card-photo {
+    width: auto;
+    max-height: 100%;
+    margin: 0 20px 0 0;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-options-list {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.card-options {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-grow: 0;
+    gap: 10px
+}
+
+
+
+.card-icon {
+    width: 14px;
 }
