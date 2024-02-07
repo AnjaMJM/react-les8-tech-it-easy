@@ -76,7 +76,7 @@ function App() {
               <section>
                   <ul>
                       {inventory.map((items) => {
-                          return <Card item={items} key={items.type}></Card>
+                          return <Card item={items} key={items.type} />
                       })}
                       </ul>
 
