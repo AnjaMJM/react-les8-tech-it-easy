@@ -1,40 +1,40 @@
-// BEST VERKOPENDE TV
-export const bestSellingTv = {
-    type: 'UHD 55AU7040',
-    name: 'Crystal',
-    brand: 'Samsung',
-    price: 549,
-    availableSizes: [43, 50, 55, 65],
-    refreshRate: 50,
-    screenType: 'LED-LCD',
-    screenQuality: 'Ultra HD/4K',
-    smartTv: true,
-    sourceImg: 'https://image.coolblue.nl/max/500x500/products/1786196',
-    options: [
-        {
-            name: "wifi",
-            applicable: true
-        },
-        {
-            name: "speech",
-            applicable: false
-        },
-        {
-            name: "hdr",
-            applicable: true
-        },
-        {
-            name: "bluetooth",
-            applicable: true
-        },
-        {
-            name: "ambiLight",
-            applicable: false
-        }
-    ],
-    originalStock: 52,
-    sold: 17,
-}
+// BEST VERKOPENDE TV --> vervangen door functie bestSellingTv
+// export const bestSellingTv = {
+//     type: 'UHD 55AU7040',
+//     name: 'Crystal',
+//     brand: 'Samsung',
+//     price: 549,
+//     availableSizes: [43, 50, 55, 65],
+//     refreshRate: 50,
+//     screenType: 'LED-LCD',
+//     screenQuality: 'Ultra HD/4K',
+//     smartTv: true,
+//     sourceImg: 'https://image.coolblue.nl/max/500x500/products/1786196',
+//     options: [
+//         {
+//             name: "wifi",
+//             applicable: true
+//         },
+//         {
+//             name: "speech",
+//             applicable: false
+//         },
+//         {
+//             name: "hdr",
+//             applicable: true
+//         },
+//         {
+//             name: "bluetooth",
+//             applicable: true
+//         },
+//         {
+//             name: "ambiLight",
+//             applicable: false
+//         }
+//     ],
+//     originalStock: 52,
+//     sold: 17,
+// }
 
 // STATISCHE VOORRAAD TV'S
 export let inventory = [
@@ -72,7 +72,7 @@ export let inventory = [
             }
         ],
         originalStock: 23,
-        sold: 2,
+        sold: 10,
     },
     {
         type: 'NH3216SMART',
@@ -288,7 +288,7 @@ export let inventory = [
             }
         ],
         originalStock: 10,
-        sold: 8,
+        sold: 18,
     },
     {
         type: '32WL1A63DG',
@@ -326,6 +326,119 @@ export let inventory = [
         originalStock: 10,
         sold: 8,
     },
+    {
+        type: 'UHD 55AU7040',
+        name: 'Crystal',
+        brand: 'Samsung',
+        price: 549,
+        availableSizes: [43, 50, 55, 65],
+        refreshRate: 50,
+        screenType: 'LED-LCD',
+        screenQuality: 'Ultra HD/4K',
+        smartTv: true,
+        sourceImg: 'https://image.coolblue.nl/max/500x500/products/1786196',
+        options: [
+            {
+                name: "wifi",
+                applicable: true
+            },
+            {
+                name: "speech",
+                applicable: false
+            },
+            {
+                name: "hdr",
+                applicable: true
+            },
+            {
+                name: "bluetooth",
+                applicable: true
+            },
+            {
+                name: "ambiLight",
+                applicable: false
+            }
+        ],
+        originalStock: 52,
+        sold: 20,
+    }
 ];
 
+// [] Functie aanmaken bestSellingTv
+// [] itereer door lijst op zoek naar hoogste waarde 'sold'
+// [] return meest verkochte item
 
+export function bestSellingTv() {
+
+    let mostSold = inventory[0]
+    let itemsSold = inventory[0].sold
+
+    for (let i = 0; i < inventory.length; i++) {
+
+        if (inventory[i].sold > itemsSold) {
+            mostSold = inventory[i]
+        }
+    }
+    return mostSold
+}
+
+// console.log(bestSellingTv())
+
+
+// Oefeningen Deel 2 - opdracht 1
+//     Opdracht 1a: Gebruik een array-methode om een array te maken met daarin alle tv-type namen. Log de uitkomst in de console.
+
+const tvNames = inventory.map((item) => {
+    return item.name
+})
+
+// console.log(tvNames)
+
+//     Opdracht 1b: Gebruik een array-methode om alle informatie te verzamelen van de tv's die volledig uitverkocht zijn. Log de uitkomst in de console.
+
+const soldOut = inventory.filter((item)=>{
+    return (item.originalStock === item.sold)
+})
+
+// console.log(soldOut)
+
+// Opdracht 1c: Gebruik een array-methode om de informatie van het tv-type 'NH3216SMART' op te halen.
+
+const specificTV = inventory.find((item) => {
+    return (item.type === "NH3216SMART")
+})
+
+// console.log(specificTV)
+
+//     Opdracht 1d: Gebruik een array-methode om een lijst te maken van de merk- en tv-namen waarbij aangegeven wordt of deze geschikt zijn voor sport-kijkers (een verversingssnelheid van 100Hz of hoger). Doe dit in het format { name: 'Toshiba HD TV', suitable: false }. Log de uitkomst in de console.
+
+const sportTV = inventory.map((item) => {
+    let suitable = item.refreshRate >= 100
+    return {name: item.name, suitable: suitable}
+})
+
+// console.log(sportTV);
+
+//     Opdracht 1e (uitdaging): Gebruik array-methoden om alle informatie te verzamelen van de tv's die beschikbaar zijn in schermgroottes van 65 inch en groter.
+
+// Maak een functie om de unieke objecten te inspecteren
+// Maak hierbinnen een functie om de array 'availableSizes' te kunnen inspecteren.
+// filter de tv's met grote schermen d.m.v. array-methode 'some'
+
+const largeTVs = inventory.filter((item) => item.availableSizes.some(size => size >=65));
+
+// console.log(largeTVs);
+
+
+// Opdracht 1f (uitdaging): Gebruik array-methoden om alle informatie te verzamelen van de tv's die over ambilight beschikken. Log de uitkomst in de console.
+
+// Net als bij opdracht 1e: een functie in een functie om tot laag 2 te komen, nu options.name === "ambilight" en options.applicable === "true"
+// log overgebleven tv's
+
+const ambilightTVs = inventory.filter((item) => {
+    return item.options.some((option) => {
+        return (option.name === "ambiLight" && option.applicable === true)
+    })
+})
+
+// console.log(ambilightTVs)
